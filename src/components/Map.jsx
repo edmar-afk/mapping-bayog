@@ -1,7 +1,9 @@
-import { useState } from "react";import { MapContainer, TileLayer, useMapEvents, Marker, Popup } from "react-leaflet";import "leaflet/dist/leaflet.css";import L from "leaflet";import api from "../assets/api";
+import { useState } from "react";import { MapContainer, TileLayer, useMapEvents, Marker, Popup } from "react-leaflet";import "leaflet/dist/leaflet.css";import L from "leaflet";
+import api from "../assets/api";
 import Sidebar from "./Sidebar";
 import TopBar from "./TopBar";
 import FeedBack from "./FeedBack";
+import Login from "./admin/Login";
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
 	iconRetinaUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png",
@@ -34,6 +36,8 @@ function Map() {
 	const [activeCategory, setActiveCategory] = useState(null);
 	const [copied, setCopied] = useState(false);
 
+	const [loginOpen, setLoginOpen] = useState(false);
+
 	const handleCopy = () => {
 		const text = `${coords?.lat}, ${coords?.lng}`;
 		navigator.clipboard.writeText(text).then(() => {
@@ -61,8 +65,17 @@ function Map() {
 	return (
 		<div className="flex flex-col h-screen px-8 py-6 pb-14">
 			<div className="flex flex-col space-y-4 bg-white rounded-lg shadow-lg p-8 order-1">
-				<div>
+				<div className="flex items-center justify-between mb-4">
 					<FeedBack />
+					<button
+						className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded"
+						onClick={() => setLoginOpen(true)}>
+						Admin Login
+					</button>
+					<Login
+						open={loginOpen}
+						onClose={() => setLoginOpen(false)}
+					/>
 				</div>
 				<div className="relative h-[500px]">
 					<MapContainer
