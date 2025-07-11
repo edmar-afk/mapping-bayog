@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { Button, Box, Modal, TextField, Typography, MenuItem } from "@mui/material";
+import React, { useState } from "react";import { Button, Box, Modal, TextField, Typography, MenuItem } from "@mui/material";
 import api from "../../assets/api";
 
 const style = {
@@ -22,6 +21,8 @@ function AddMembers() {
 		age: "",
 		role: "",
 		household: "",
+		source_income: "",
+		purok: "",
 	});
 
 	const fetchHouseholds = async () => {
@@ -39,7 +40,14 @@ function AddMembers() {
 	};
 
 	const handleClose = () => {
-		setFormData({ name: "", age: "", role: "", household: "" });
+		setFormData({
+			name: "",
+			age: "",
+			role: "",
+			household: "",
+			source_income: "",
+			purok: "",
+		});
 		setOpen(false);
 	};
 
@@ -120,6 +128,28 @@ function AddMembers() {
 								{h.family_name}
 							</MenuItem>
 						))}
+					</TextField>
+					<TextField
+						fullWidth
+						name="source_income"
+						label="Source of Income"
+						value={formData.source_income}
+						onChange={handleChange}
+						sx={{ mb: 2 }}
+					/>
+					<TextField
+						fullWidth
+						select
+						name="purok"
+						label="Purok"
+						value={formData.purok}
+						onChange={handleChange}
+						sx={{ mb: 2 }}>
+						<MenuItem value="Purok 1">Purok 1</MenuItem>
+						<MenuItem value="Purok 2">Purok 2</MenuItem>
+						<MenuItem value="Purok 3">Purok 3</MenuItem>
+						<MenuItem value="Purok 4">Purok 4</MenuItem>
+						<MenuItem value="Purok 5">Purok 5</MenuItem>
 					</TextField>
 					<Button
 						fullWidth

@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from "react";import api from "../assets/api";import AddSeniors from "../components/admin/AddSeniors";
-function Seniors() {
-	const [seniors, setSeniors] = useState([]);
+import React, { useEffect, useState } from "react";import api from "../assets/api";import AddSeniors from "../components/admin/AddSeniors";function Seniors() {	const [seniors, setSeniors] = useState([]);
 
 	const fetchSeniors = async () => {
 		try {
@@ -44,6 +42,7 @@ function Seniors() {
 									<th className="px-4 py-3">Name</th>
 									<th className="px-4 py-3">Age</th>
 									<th className="px-4 py-3">Gender</th>
+									<th className="px-4 py-3">Purok</th>
 									<th className="px-4 py-3">Actions</th>
 								</tr>
 							</thead>
@@ -55,6 +54,7 @@ function Seniors() {
 										<td className="px-4 py-3 font-medium text-gray-900 whitespace-nowrap">{senior.people}</td>
 										<td className="px-4 py-3">{senior.age}</td>
 										<td className="px-4 py-3">{senior.gender}</td>
+										<td className="px-4 py-3">{senior.purok}</td>
 										<td className="px-4 py-3 flex items-center justify-start">
 											<button
 												type="button"

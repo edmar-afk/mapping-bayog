@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { Button, Box, Modal, TextField, Typography, MenuItem } from "@mui/material";
+import React, { useState } from "react";import { Button, Box, Modal, TextField, Typography, MenuItem } from "@mui/material";
 import api from "../../assets/api";
 
 const style = {
@@ -21,11 +20,20 @@ function AddPwd() {
 		age: "",
 		gender: "",
 		location: "",
+		disable_type: "",
+		source_income: "",
 	});
 
 	const handleOpen = () => setOpen(true);
 	const handleClose = () => {
-		setFormData({ people: "", age: "", gender: "", location: "" });
+		setFormData({
+			people: "",
+			age: "",
+			gender: "",
+			location: "",
+			disable_type: "",
+			source_income: "",
+		});
 		setOpen(false);
 	};
 
@@ -95,6 +103,22 @@ function AddPwd() {
 						name="location"
 						label="Location"
 						value={formData.location}
+						onChange={handleChange}
+						sx={{ mb: 2 }}
+					/>
+					<TextField
+						fullWidth
+						name="disable_type"
+						label="Type of Disability"
+						value={formData.disable_type}
+						onChange={handleChange}
+						sx={{ mb: 2 }}
+					/>
+					<TextField
+						fullWidth
+						name="source_income"
+						label="Source of Income"
+						value={formData.source_income}
 						onChange={handleChange}
 						sx={{ mb: 2 }}
 					/>

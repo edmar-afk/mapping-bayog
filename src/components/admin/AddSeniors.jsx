@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { Button, Box, Modal, TextField, Typography, MenuItem } from "@mui/material";
+import React, { useState } from "react";import { Button, Box, Modal, TextField, Typography, MenuItem } from "@mui/material";
 import api from "../../assets/api";
 
 const style = {
@@ -21,11 +20,18 @@ function AddSeniors() {
 		age: "",
 		gender: "",
 		location: "",
+		purok: "",
 	});
 
 	const handleOpen = () => setOpen(true);
 	const handleClose = () => {
-		setFormData({ people: "", age: "", gender: "", location: "" });
+		setFormData({
+			people: "",
+			age: "",
+			gender: "",
+			location: "",
+			purok: "",
+		});
 		setOpen(false);
 	};
 
@@ -60,7 +66,7 @@ function AddSeniors() {
 					<Typography
 						variant="h6"
 						mb={2}>
-						Add PWD
+						Add Senior
 					</Typography>
 					<TextField
 						fullWidth
@@ -98,6 +104,20 @@ function AddSeniors() {
 						onChange={handleChange}
 						sx={{ mb: 2 }}
 					/>
+					<TextField
+						fullWidth
+						select
+						name="purok"
+						label="Purok"
+						value={formData.purok}
+						onChange={handleChange}
+						sx={{ mb: 2 }}>
+						<MenuItem value="Purok 1">Purok 1</MenuItem>
+						<MenuItem value="Purok 2">Purok 2</MenuItem>
+						<MenuItem value="Purok 3">Purok 3</MenuItem>
+						<MenuItem value="Purok 4">Purok 4</MenuItem>
+						<MenuItem value="Purok 5">Purok 5</MenuItem>
+					</TextField>
 					<Button
 						fullWidth
 						variant="contained"

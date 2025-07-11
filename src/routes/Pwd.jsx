@@ -1,9 +1,4 @@
-import React, { useEffect, useState } from "react";import api from "../assets/api";
-import AddPwd from "../components/admin/AddPwd";
-function Pwd() {
-	const [pwds, setPwds] = useState([]);
-
-	const fetchPwds = async () => {
+import React, { useEffect, useState } from "react";import api from "../assets/api";import AddPwd from "../components/admin/AddPwd";function Pwd() {	const [pwds, setPwds] = useState([]);	const fetchPwds = async () => {
 		try {
 			const res = await api.get("/api/pwds/");
 			setPwds(res.data);
@@ -44,6 +39,8 @@ function Pwd() {
 									<th className="px-4 py-3">Name</th>
 									<th className="px-4 py-3">Age</th>
 									<th className="px-4 py-3">Gender</th>
+									<th className="px-4 py-3">Source of Income</th>
+									<th className="px-4 py-3">Disability Condition</th>
 									<th className="px-4 py-3">Actions</th>
 								</tr>
 							</thead>
@@ -55,7 +52,8 @@ function Pwd() {
 										<td className="px-4 py-3 font-medium text-gray-900 whitespace-nowrap">{pwd.people}</td>
 										<td className="px-4 py-3">{pwd.age}</td>
 										<td className="px-4 py-3">{pwd.gender}</td>
-
+										<td className="px-4 py-3">{pwd.source_income}</td>
+										<td className="px-4 py-3">{pwd.disable_type}</td>
 										<td className="px-4 py-3 flex items-center justify-start">
 											<button
 												type="button"
