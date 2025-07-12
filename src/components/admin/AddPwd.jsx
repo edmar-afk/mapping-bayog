@@ -22,6 +22,7 @@ function AddPwd() {
 		location: "",
 		disable_type: "",
 		source_income: "",
+		purok: "", // Added purok here
 	});
 
 	const handleOpen = () => setOpen(true);
@@ -33,6 +34,7 @@ function AddPwd() {
 			location: "",
 			disable_type: "",
 			source_income: "",
+			purok: "", // Reset purok too
 		});
 		setOpen(false);
 	};
@@ -119,6 +121,14 @@ function AddPwd() {
 						name="source_income"
 						label="Source of Income"
 						value={formData.source_income}
+						onChange={handleChange}
+						sx={{ mb: 2 }}
+					/>
+					<TextField
+						fullWidth
+						name="purok"
+						label="Purok"
+						value={formData.purok}
 						onChange={handleChange}
 						sx={{ mb: 2 }}
 					/>

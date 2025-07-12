@@ -1,10 +1,4 @@
-import { useState } from "react";import { MapContainer, TileLayer, useMapEvents, Marker, Popup } from "react-leaflet";import "leaflet/dist/leaflet.css";import L from "leaflet";
-import api from "../assets/api";
-import Sidebar from "./Sidebar";
-import TopBar from "./TopBar";
-import FeedBack from "./FeedBack";
-import Login from "./admin/Login";
-delete L.Icon.Default.prototype._getIconUrl;
+import { useState } from "react";import { MapContainer, TileLayer, useMapEvents, Marker, Popup } from "react-leaflet";import "leaflet/dist/leaflet.css";import L from "leaflet";import api from "../assets/api";import Sidebar from "./Sidebar";import TopBar from "./TopBar";import FeedBack from "./FeedBack";import Login from "./admin/Login";delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
 	iconRetinaUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png",
 	iconUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png",
@@ -122,6 +116,13 @@ function Map() {
 														Name: {item.people} <br />
 														Age: {item.age} <br />
 														Gender: {item.gender}
+														<br />
+														Purok: {item.purok}
+														<br />
+														Source of Income: {item.source_income}
+														<br />
+														Condition: {item.disable_type}
+														<br />
 													</>
 												) : activeCategory === "infras" ? (
 													<>
